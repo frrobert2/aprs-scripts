@@ -1,15 +1,19 @@
 # aprs-send-weather
-Send a formatted APRS weather packet to APRSIS, and RF via KISS TNC/direwolf.
+Send a formatted APRS message packet to APRSIS, and RF via KISS TNC/direwolf.
 
 
- Install requirements (weewx, weewx-aprs weewx extension, direwolf):
+ Install requirements (direwolf):
  <pre>
-    apt-get install weewx
-    wget https://github.com/cavedon/weewx-aprs/archive/refs/heads/master.zip
-    wee_extension --install=master.zip
     apt-get install direwolf
-</pre>
+ </pre>
 
-  (C)2022 Craig Lamparter
-  GPL v2.1
+To install aprsmessage to your home directory and make the file executable.
+
+Direwolf must be configured and running for the script to work.
+
+Usage:
+ <pre>
+aprsmessage callsignofrecipient message to recipient
+  </pre>
+ GPL v2.1
 
