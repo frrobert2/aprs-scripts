@@ -14,7 +14,7 @@ The combination script was assembled and modified by Robert W9RWB
     apt-get install direwolf
  </pre>
 
-To install aprsmessage to your home directory and make the file executable.
+To install copy aprsmessage to a location in your home directory that is in your path and make the file executable.
 
 Direwolf must be configured and running for the script to work.
 
