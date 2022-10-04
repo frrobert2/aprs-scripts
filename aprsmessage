@@ -1,0 +1,45 @@
+#!/bin/bash
+#This Script is a combination of two scripts.
+# https://github.com/craigerl/aprs-send-weather/blob/main/aprs-send-weather.sh  
+# https://groups.io/g/direwolf/message/7007
+# Both by Craig KM6LYW
+# The combination script was assembled and very slightly modified by Robert W9RWB
+# The purpose is to send messages via the commandline rather than using a client such as YAAC or Xastir.
+# read destination callsign and message from command line
+TOCALL=$1
+shift
+INPUT=$*
+if [ "$INPUT" = "" ]; then
+  echo "Usage:  $1 <callsign> <text message to send>"
+  exit 1
+fi
+
+USER="Enter your call sign here with APRS identifier"
+PASS="enter aprs passcode"                        # https://apps.magicbug.co.uk/passcode/
+DIREWOLFHOSTNAME=localhost   # localhost should work for most installations
+
+# telnet to aprsis server, login, send concatenated string, quit
+{
+sleep 2
+echo "user $USER pass $PASS vers aprs-send-message 0.1"
+sleep 2
+printf  "$USER>APDW17,TCPIP*::%-9s:$INPUT\r\n" $TOCALL
+sleep 5
+echo "^]"
+echo "quit"
+} | telnet noam.aprs2.net 14580
+ERR="${PIPESTATUS[0]}"
+if [ $ERR -eq 0 ]; then
+   echo "Message sent."
+else
+   echo "ERROR: telnet returned $ERR."
+fi
+
+echo "Sending packet to Radio TNC."
+{
+sleep 10    # allow kissutil time to make connection
+printf  "$USER>WIDE1-1::%-9s:$INPUT\r\n" $TOCALL 
+} | kissutil -h $DIREWOLFHOSTNAME
+
+
+exit $ERR
