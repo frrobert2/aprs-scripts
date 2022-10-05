@@ -1,4 +1,5 @@
-# aprs-send-message
+# aprs-scripts
+## aprs-send-message
 Send a formatted APRS message packet to APRSIS, and RF via KISS TNC/direwolf.
 This Script is a combination of two scripts.
 
