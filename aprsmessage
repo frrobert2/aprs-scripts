@@ -38,7 +38,7 @@ fi
 echo "Sending packet to Radio TNC."
 {
 sleep 10    # allow kissutil time to make connection
-printf  "$USER>WIDE1-1::%-9s:$INPUT\r\n" $TOCALL 
+printf  "$USER>APDW17, WIDE1-1::%-9s:$INPUT\r\n" $TOCALL 
 } | kissutil -h $DIREWOLFHOSTNAME
 
 
