@@ -14,7 +14,7 @@ fi
 runtime="$1 minute"
 endtime=$(date -ud "$runtime" +%s)
 
-USER="W9RWB-1"
+USER="enter your callsign with aprs identifier number"
 DIREWOLFHOSTNAME=localhost
 while [[ $(date -u +%s) -le $endtime ]]
 do
@@ -22,6 +22,7 @@ do
 echo "Sending packet to Radio TNC."
 {
 sleep 10    # allow kissutil time to make connection
+#change line bellow with your location, antenna information, and message
 printf  "$USER>APDW17,ARISS:!4140.89NI08612.21W#PHG2000 Hello from Robert"
 } | kissutil -h $DIREWOLFHOSTNAME
 
