@@ -1,4 +1,6 @@
 # aprs-scripts
+
+All scripts will need to be edited with user's call sign with APRS identifier.  Some scripts will need additional editing such as APRS-IS password, location, antenna information, or custom messages.
 ## sendmessage
 Send a formatted APRS message packet to APRSIS, and RF via KISS TNC/direwolf.
 This Script is a combination of two scripts.
