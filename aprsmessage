@@ -6,7 +6,8 @@
 # The combination script was assembled and very slightly modified by Robert W9RWB
 # The purpose is to send messages via the commandline rather than using a client such as YAAC or Xastir.
 # read destination callsign and message from command line
-TOCALL=$1
+one=$1
+TOCALL=${one^^}
 shift
 INPUT=$*
 if [ "$INPUT" = "" ]; then
