@@ -23,7 +23,7 @@ echo "Sending packet to Radio TNC."
 {
 sleep 10    # allow kissutil time to make connection
 #change line bellow with your location, antenna information, and message
-printf  "$USER>APDW17,ARISS:!4140.89NI08612.21W#PHG2000 Hello from Robert"
+printf  "$USER>CQ,ARISS,WIDE2-1:!4140.89NI08612.21W#PHG2000 Hello from Robert" 
 } | kissutil -h $DIREWOLFHOSTNAME
 
 done
